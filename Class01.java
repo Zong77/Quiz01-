@@ -1,34 +1,50 @@
 package Java111Q1;
 
-import Java111Q1.Data;
+import Java111Q1.Cal_area;
 
-class Data {
-	private String name;
-	private Test score;
+class Cal_area {
+	int length;
+	int width;
+	int height;
+	int radius;
 
-	class Test {
-		private int english;
-		private int math;
-
-		Test(int eng, int m) {
-			english = eng;
-			math = m;
-		}
-
-		double avg() {
-			return (english + math) / 2.0;
-		}
+	void showData1() {
+		System.out.println("長 = " + length);
+		System.out.println("寬 = " + width);
+		System.out.println("高 = " + height);
 	}
 
-	void show() {
-		System.out.println("name:" + name);
-		System.out.println("english:" + score.english);
-		System.out.println("math:" + score.math);
-		System.out.println("avg:" + score.avg());
+	void showData2() {
+		System.out.println("半徑 =" + radius);
 	}
 
-	Data(String n, int eng, int m) {
-		name = n;
-		score = new Test(eng, m);
+	void surfaceArea() {
+		System.out.println("立方體表面積 = " + ((length * width + length * height + height * width) * 2));
 	}
+
+	void volume() {
+		System.out.printf("球形體積 = " + "%.1f", ((double) 3.14159 * radius * radius * radius * 4 / 3));
+		System.out.println();
+	}
+
+	void showAll() {
+		showData2();
+		volume();
+		showData1();
+		surfaceArea();
+	}
+
+}
+
+public class Class01 {
+
+	public static void main(String args[]) {
+		Cal_area area = new Cal_area();
+		area.length = 4;
+		area.width = 5;
+		area.height = 6;
+		area.radius = 10;
+		area.showAll();
+	}
+
 }
